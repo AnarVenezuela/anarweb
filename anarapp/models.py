@@ -172,8 +172,8 @@ class Indicaciones(models.Model):
     puntoDatum = CharField('6.1 Punto Datum ', blank = True)
     
     class Meta:
-        verbose_name = '6. Indicaciones para llegar al Yac.'
-        verbose_name_plural = '6. Indicaciones para llegar al Yac.'
+        verbose_name = '6. Indicaciones para llegar al Yacicimiento'
+        verbose_name_plural = '6. Indicaciones para llegar al Yacimiento'
 
     def __unicode__(self):
         return '' # '# ' + str(self.id)
@@ -558,7 +558,8 @@ class TecnicaParaGeoglifo (models.Model):
     tecnicas = CharField('23.1. Técnicas de Construcción', blank = True)
     
     class Meta:
-        verbose_name = '13.1. Geoglifo'
+        verbose_name = '13.1. Geoglifooof'
+        #verbose_name = models.BooleanField('fuck') #'13.1. Geoglifooo'
         verbose_name_plural = '23. Técnicas'
         
     def __unicode__(self):
@@ -1590,8 +1591,8 @@ class BibYacimiento(Bibliografia):
     esPapel = models.BooleanField('31.1.7.4. Papel')
     esDigital = models.BooleanField('31.1.7.5. Digital')
     esNegativo = models.BooleanField('31.1.7.6. Negativo')
-    descripcion  = CharField('31.1.7.7. Con mapa ', blank = True)
-    tipoMapa = models.IntegerField('31.1.7.8. Tipo de mapa', 
+    descripcion  = CharField('31.1.8. Con mapa ', blank = True)
+    tipoMapa = models.IntegerField('31.1.8.1. Tipo de mapa', 
         choices = Bibliografia.TIPO_MAPA, 
         blank = True,
         null = True)
@@ -1633,8 +1634,8 @@ class BibPiedra(Bibliografia):
 # Material audiovisual     
 class MatAudioVisual (models.Model):
 
-    formato = CharField('1. Formato', )
-    archivo = models.FileField('2. Material AV - Archivo', 
+    formato = CharField('31.2.1. Formato', )
+    archivo = models.FileField('31.2.2. Material AV - Archivo', 
         upload_to='audiovisual/%Y_%m', 
         null=True, 
         blank=True)
@@ -1665,15 +1666,15 @@ class MatAVPiedra(MatAudioVisual):
 # Videos 
 class Video (models.Model):
 
-    anio = models.IntegerField('0. Año')
-    formato = CharField('1. Formato',)
-    titulo = CharField('2. Titulo')
-    autor = CharField('3. Autor')    
-    institucion = CharField('4. Institucion',)
-    numReferencia = models.IntegerField('5. Nro de referencia')
-    isFromAnar = models.BooleanField('6. ¿Es de ANAR?')
-    numCopia = models.IntegerField('6.1. Nro de copia')
-    archivo = models.FileField('7. Video - Archivo', upload_to='video/%Y_%m', null=True, blank=True)
+    anio = models.IntegerField('31.3.0. Año')
+    formato = CharField('31.3.1. Formato',)
+    titulo = CharField('31.3.2. Titulo')
+    autor = CharField('31.3.3. Autor')    
+    institucion = CharField('31.3.4. Institucion',)
+    numReferencia = models.IntegerField('31.3.5. Nro de referencia')
+    isFromAnar = models.BooleanField('31.3.6. ¿Es de ANAR?')
+    numCopia = models.IntegerField('31.3.6.1. Nro de copia')
+    archivo = models.FileField('31.3.7. Video - Archivo', upload_to='video/%Y_%m', null=True, blank=True)
     
     def __unicode__(self):
         return '' # '# ' + str(self.id)    

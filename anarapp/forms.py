@@ -327,7 +327,8 @@ class MaterialYacimientoForm(ModelForm) :
 class TecnicaParaGeoglifoForm(ModelForm) :
     class Meta:
         widgets = {
-            'tecnicas': AutosizedTextarea(attrs=regularTextArea),
+            'tecnicas': AutosizedTextarea(attrs=regularTextArea), 
+            #'tecnicas':
         }
 
 class TecnicaParaPinturaForm(ModelForm) :
