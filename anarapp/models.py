@@ -558,8 +558,7 @@ class TecnicaParaGeoglifo (models.Model):
     tecnicas = CharField('23.1. Técnicas de Construcción', blank = True)
     
     class Meta:
-        verbose_name = '13.1. Geoglifooof'
-        #verbose_name = models.BooleanField('fuck') #'13.1. Geoglifooo'
+        verbose_name = '13.1. Geoglifo'
         verbose_name_plural = '23. Técnicas'
         
     def __unicode__(self):
@@ -1585,13 +1584,21 @@ class BibYacimiento(Bibliografia):
         blank=True)
     
     esFotografia = models.BooleanField('31.1.7. Con fotografía')
+    esFotografiaArchivo = models.ImageField('31.1.7.0. Archivo', 
+        upload_to='bibliografia_foto/%Y_%m', 
+        null=True, 
+        blank=True)
     escolor = models.BooleanField('31.1.7.1. Color')
     esBlancoYNegro = models.BooleanField('31.1.7.2. B/N')
     esDiapositiva = models.BooleanField('31.1.7.3. Diapositiva')
     esPapel = models.BooleanField('31.1.7.4. Papel')
     esDigital = models.BooleanField('31.1.7.5. Digital')
     esNegativo = models.BooleanField('31.1.7.6. Negativo')
-    descripcion  = CharField('31.1.8. Con mapa ', blank = True)
+    esMapa  = CharField('31.1.7.7. Con mapa ', blank = True)
+    esMapaArchivo  = models.ImageField('31.1.7.7.0. Archivo', 
+        upload_to='bibliografia_mapa_foto/%Y_%m', 
+        null=True, 
+        blank=True)
     tipoMapa = models.IntegerField('31.1.8.1. Tipo de mapa', 
         choices = Bibliografia.TIPO_MAPA, 
         blank = True,
